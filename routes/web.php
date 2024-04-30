@@ -45,7 +45,7 @@ Route::get('/admin', [AdminProjectController::class, 'index'])->middleware(['aut
 
 Route::get('/', [ProjectController::class, 'index']);
 Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
-
+Route::resource('projects', ProjectController::class)->parameters(['projects' => 'project:slug']);
 
 Route::get('/admin/types', [TypeController::class, 'show'])->name('admin.types.show');
 Route::delete('/admin/types/{type}', [TypeController::class, 'destroy'])->name('admin.types.destroy');

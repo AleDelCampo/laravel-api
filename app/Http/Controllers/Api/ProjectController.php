@@ -8,22 +8,20 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-    public function index(){
 
+    public function index() {
 
         $projects = Project::with(['type', 'technologies'])->paginate(4);
 
-        return response ()->json([
-            'success' => true,
-            'results' => $projects
+        return response()->json([
+            "success" => true,
+            "results" => $projects
         ]);
     }
 
-    public function show($id){
+    public function show($slug) {
 
-        $project = Project::with(['type', 'technologies'])->where("id","=", $id)->first();
-
-        // dd($project);
+        $project = Project::with(['type', 'technologies'])->where('slug', $slug)->first();
 
         if($project) {
             return response()->json([
@@ -39,5 +37,4 @@ class ProjectController extends Controller
         }
 
     }
-
 }
