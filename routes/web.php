@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::prefix('admin')->group(function () {
-        Route::resource('projects', AdminProjectController::class);
+        Route::resource('projects', AdminProjectController::class)->parameters(['projects' => 'project:slug']);
         Route::resource('types', TypeController::class);
     });
 });
@@ -45,7 +45,6 @@ Route::get('/admin', [AdminProjectController::class, 'index'])->middleware(['aut
 
 Route::get('/', [ProjectController::class, 'index']);
 Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
-Route::resource('projects', ProjectController::class)->parameters(['projects' => 'project:slug']);
 
 Route::get('/admin/types', [TypeController::class, 'show'])->name('admin.types.show');
 Route::delete('/admin/types/{type}', [TypeController::class, 'destroy'])->name('admin.types.destroy');
