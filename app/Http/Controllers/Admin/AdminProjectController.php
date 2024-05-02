@@ -54,7 +54,7 @@ class AdminProjectController extends Controller
 
         $newProject->fill($request->all());
 
-        $newProject->slug = Str::slug($request->title);
+        $newProject->slug = Str::slug($request->title, '-');
 
         $newProject->save();
 
@@ -89,7 +89,7 @@ class AdminProjectController extends Controller
     {
         $request->validated();
 
-        $project->slug = Str::slug($request->title);
+        $project->slug = Str::slug($request->title, '-');
 
         $project->update($request->all());
 

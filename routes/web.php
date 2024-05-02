@@ -44,7 +44,7 @@ Route::get('/admin', [AdminProjectController::class, 'index'])->middleware(['aut
 //Rotta accessibile a tutti per la sola Visualizzazione.
 
 Route::get('/', [ProjectController::class, 'index']);
-Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
+Route::get('/projects/{project:slug}', [ProjectController::class, 'show'])->name('projects.show');
 
 Route::get('/admin/types', [TypeController::class, 'show'])->name('admin.types.show');
 Route::delete('/admin/types/{type}', [TypeController::class, 'destroy'])->name('admin.types.destroy');
