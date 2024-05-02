@@ -19,9 +19,9 @@ class ProjectController extends Controller
         ]);
     }
 
-    public function show($id){
+    public function show($slug){
 
-        $project = Project::with(['type', 'technologies'])->where("id","=", $id)->first();
+        $project = Project::with(['type', 'technologies'])->where("slug","=", $slug)->first();
 
         // dd($project);
 
@@ -32,12 +32,8 @@ class ProjectController extends Controller
             ]);
 
         } else {
-            return response()->json([
-                "success" => false,
-                "error" => "Project not found (404)"
-            ]);
+            return response()->view('errors.404');
         }
-
     }
 
 }
