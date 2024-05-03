@@ -41,6 +41,7 @@ class StoreProjectRequest extends FormRequest
             'description.max' => "Puoi usare al massimo :max caratteri",
             'image.mimes' => "Inserisci un immagine",
             'image.max' => "Peso limite 1024 KB",
+            'image.file' => "Devi selezionare un file",
             'type_id.exists' => "PERCHE' NON PROVI AD HACKERARMI I ....",
             'technology_id.exists' => "Ma almeno una cliccala!!"
         ];

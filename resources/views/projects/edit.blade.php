@@ -7,7 +7,7 @@
   <div class="container py-4">
     <h1>Modifica il Progetto</h1>
 
-    <form action="{{route('projects.update', $project)}}" method="POST">
+    <form action="{{route('projects.update', $project)}}" method="POST" enctype="multipart/form-data">
       @csrf
 
       @method("PUT")
@@ -66,7 +66,7 @@
       </div>
 
       <div class="mb-4">
-        <label class="mb-2" for="">Tecnologie:</label>
+        <label class="mb-2">Tecnologie:</label>
         <div class="d-flex gap-2">
           @foreach($technologies as $technology)
           <div class="form-check">

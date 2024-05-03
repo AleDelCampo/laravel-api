@@ -102,7 +102,7 @@ class AdminProjectController extends Controller
 
         $project->save();
 
-        return redirect()->route('projects.show', ['project' => $project->id]);
+        return redirect()->route('projects.show', ['project' => $project]);
     }
 
     /**
